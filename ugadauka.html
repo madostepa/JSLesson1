@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	
+	var answer = parseInt(Math.random() * 100);
+
+	do{
+		var trying = +prompt("Введите количество попыток");
+	} while(isNaN(trying) || trying <= 0 )
+
+	var userAnswer = +prompt("Угадай число от 0 до 100");
+
+	for(var tryCount = 1; tryCount <= trying; tryCount++){
+		if(userAnswer == answer){
+			document.write("Вау! Ну ты Коперфильд!");
+			break;
+			// continue: - след итерация цикла
+		} else if(userAnswer > answer){
+			document.write("Вы ввели слишком большое число. ");
+		} else if(userAnswer < answer){
+			document.write("Вы ввели слишком маленько число. ");
+		} 
+		if((trying - tryCount) == 0){
+			break;
+		}
+		document.write("У вас осталось " + (trying - tryCount) + " попыток<br>");
+
+		userAnswer = +prompt("Попробуй еще раз. Введите число от 1 до 100");
+	}
+
+	document.write("Правильны ответ " + answer);
+</script>
